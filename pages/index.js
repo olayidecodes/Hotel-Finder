@@ -3,6 +3,7 @@ import Image from "next/image"
 import { Flex, Box, Text, Button } from '@chakra-ui/react'
 
 import {baseUrl, fetchApi} from '../utils/fetchApi'
+import Hotel from "../components/Hotel"
 
 const Banner = ({purpose}) => (
   <Flex flexWrap="wrap"
@@ -29,7 +30,8 @@ export default function Home({hotelList}) {
     <div>
       <Banner/>
       <Flex flexWrap='wrap'>
-        {hotelList.map((hotel) => (<h1>{hotel.name}</h1>))}
+        {/* {hotelList.map((hotel) => hotel.name)} */}
+        {hotelList.map((hotel) => <Hotel hotel={hotel} key={hotel.id}/>)}
       </Flex>
     </div>
   )
