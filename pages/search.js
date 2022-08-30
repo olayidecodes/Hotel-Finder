@@ -1,6 +1,5 @@
 import { useState } from "react";
 import {useRouter} from 'next/router'
-import Image from "next/image";
 import {Flex, Box, Text, Icon} from '@chakra-ui/react'
 import {BsFilter} from 'react-icons/bs'
 import SearchFilters from "../components/SearchFilters";
@@ -21,10 +20,10 @@ const Search = ({hotelList}) => {
             </Flex>
             {searchFilters && <SearchFilters />}
             <Text fontSize='2xl' p='4' fontWeight='bold'>
-                Hotels {router.query.purpose}
+                {router.query.purpose}
             </Text>
-            <Flex flexWrap='wrap'>
-            {hotelList.map((hotel) => <Hotel hotel={hotel} key={hotel.id}/>)}
+            <Flex flexWrap='wrap' justifyContent='center' alignItems='center'>
+              {hotelList.map((hotel) => <Hotel hotel={hotel} key={hotel.id}/>)}
             </Flex>
              {hotelList.length === 0 && (
                 <h1>No results found</h1> 
@@ -36,9 +35,17 @@ const Search = ({hotelList}) => {
 export default Search
 
 
-export const getStaticProps = async() => {
-    const hotels = await fetchApi(`${baseUrl}/properties/list?destinationId=1781708&pageSize=6`)
-  
+export async function getServerSideProps({ query }) {
+    const destinationId = query.destinationId || '1781708';
+    const pageNumber = query.pageNumber || '1'
+    const pageSize = query.pageSize || '2'
+    const adults1 = query.adults1 || '1'
+    const priceMin = query.priceMin || '0'
+    const priceMax = query.priceMax || '500'
+
+    const hotels = await fetchApi(`${baseUrl}/properties/list?destinationId=${destinationId}&pageNumber=${pageNumber}&pageSize=${pageSize}
+    &adults1=${adults1}&priceMin=${priceMin}&priceMax=${priceMax}`)
+
     return {
       props: {
         hotelList: hotels?.data.body.searchResults.results

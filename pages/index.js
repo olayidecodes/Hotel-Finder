@@ -16,7 +16,7 @@ const Banner = ({purpose}) => (
       <Box textAlign='center' display='flex' flexDirection='column' alignItems='center' justifyContent='center' padding='2rem' backgroundColor='RGBA(0, 0, 0, 0.4)' width='100%' height='100%' color='#FFFFFF'>
         <Text fontSize='4xl'>FIND YOUR LUXURY HOME</Text>
         <Text>With over 200 curated list of hotels in New york, you can get the best deals at an affordable price</Text>
-        <Link href='/'>
+        <Link href='#hotels'>
           <Button  padding='0px 20px' border='none' borderRadius='2px' cursor='pointer' color='black' backgroundColor='blue.300' marginTop='.6rem'>FIND HOTELS</Button>
         </Link>
       </Box>
@@ -24,12 +24,10 @@ const Banner = ({purpose}) => (
 )
 
 export default function Home({hotelList}) {
-  // console.log(hotelList)
   return (
     <div>
       <Banner/>
-      <Flex flexWrap='wrap' justifyContent='center' marginTop='3rem'>
-        {/* {hotelList.map((hotel) => hotel.name)} */}
+      <Flex flexWrap='wrap' justifyContent='center' marginTop='3rem' id="hotels">
         {hotelList.map((hotel) => <Hotel hotel={hotel} key={hotel.id}/>)}
       </Flex>
     </div>
@@ -46,47 +44,3 @@ export const getStaticProps = async() => {
     }
   }
 }
-
-// import axios from "axios";
-
-// const options = {
-//   method: 'GET',
-//   url: 'https://hotels4.p.rapidapi.com/locations/search',
-//   params: {query: 'lagos',},
-//   headers: {
-//     'X-RapidAPI-Key': '1388e706d4mshf50939857a1f904p1fd4c8jsn6b6893f19c52',
-//     'X-RapidAPI-Host': 'hotels4.p.rapidapi.com'
-//   }
-// };
-
-// axios.request(options).then(function (response) {
-// 	console.log(response.data);
-// }).catch(function (error) {
-// 	console.error(error);
-// });
-
-// import axios from "axios";
-
-// const options = {
-//   method: 'GET',
-//   url: 'https://hotels4.p.rapidapi.com/properties/list',
-//   params: {
-//     destinationId: '1781708',
-//     pageNumber: '1',
-//     pageSize: '25',
-//     adults1: '1',
-//     sortOrder: 'PRICE',
-//     locale: 'en_US',
-//     currency: 'USD'
-//   },
-//   headers: {
-//     'X-RapidAPI-Key': '1388e706d4mshf50939857a1f904p1fd4c8jsn6b6893f19c52',
-//     'X-RapidAPI-Host': 'hotels4.p.rapidapi.com'
-//   }
-// };
-
-// axios.request(options).then(function (response) {
-// 	console.log(response.data);
-// }).catch(function (error) {
-// 	console.error(error);
-// });

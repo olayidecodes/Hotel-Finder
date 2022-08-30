@@ -12,7 +12,7 @@ const Hotel = ({ hotel: {name, address: {streetAddress, locality}, optimizedThum
     <Link href={`/hotel/${id}`} passHref>
         <Flex flexWrap='wrap' w='420px' p='5' paddingTop='0' justifyContent='flex-start' cursor='pointer' marginBottom='2rem' >
             <Box>
-                <Image src={srpDesktop ? srpDesktop : DefaultImage} width={400} height={260} alt="hotel"/>
+                <Image src={srpDesktop ? srpDesktop : DefaultImage} width={400} height={260} quality={100} alt="hotel"/>
             </Box>
             <Box>
                 

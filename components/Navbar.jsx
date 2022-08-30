@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { Menu, MenuButton, MenuList, MenuItem, IconButton, Flex, Box, Spacer } from '@chakra-ui/react'
-import { FcMenu, FcHome } from 'react-icons/fc'
+import { FcMenu } from 'react-icons/fc'
 import {BsSearch } from 'react-icons/bs'
-import { FaHotel } from 'react-icons/fa'
+import { FaHotel, FaHome } from 'react-icons/fa'
 
 const Navbar = () => (
     <Flex p='2' borderBottom='1px' borderColor='gray.100'>
@@ -15,12 +15,12 @@ const Navbar = () => (
                 <MenuButton as={IconButton} icon={<FcMenu />} variant='outlined' color='red.400'/>
                 <MenuList>
                     <Link href='/' passHref>
-                        <MenuItem icon={<FcHome />}>Home</MenuItem>
+                        <MenuItem icon={<FaHome />}>Home</MenuItem>
                     </Link>
-                    <Link href='/search' passHref>
+                    <Link href='/search?purpose=Search' passHref>
                         <MenuItem icon={<BsSearch />}>Search</MenuItem>
                     </Link>
-                    <Link href='/search?purpose=for-lease' passHref>
+                    <Link href='/search?purpose=Hotels' passHref>
                         <MenuItem icon={<FaHotel />}>Hotels</MenuItem>
                     </Link>
                 </MenuList>
