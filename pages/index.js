@@ -24,6 +24,7 @@ const Banner = ({purpose}) => (
 )
 
 export default function Home({hotelList}) {
+  console.log(hotelList)
   return (
     <div>
       <Banner/>
@@ -43,4 +44,5 @@ export const getStaticProps = async() => {
       hotelList: hotels?.data.body.searchResults.results
     }
   }
+  
 }

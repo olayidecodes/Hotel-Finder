@@ -17,9 +17,9 @@ const Navbar = () => (
                     <Link href='/' passHref>
                         <MenuItem icon={<FaHome />}>Home</MenuItem>
                     </Link>
-                    <Link href='/search?purpose=Search' passHref>
+                    {/* <Link href='/search?purpose=Search' passHref>
                         <MenuItem icon={<BsSearch />}>Search</MenuItem>
-                    </Link>
+                    </Link> */}
                     <Link href='/search?purpose=Hotels' passHref>
                         <MenuItem icon={<FaHotel />}>Hotels</MenuItem>
                     </Link>
