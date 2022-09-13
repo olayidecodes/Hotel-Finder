@@ -12,12 +12,12 @@ const Search = ({hotelList}) => {
 
     return (
         <Box>
-            <Flex cursor='pointer' bg='gray.100' borderBottom='1px' borderColor='gray.200'
+            {/* <Flex cursor='pointer' bg='gray.100' borderBottom='1px' borderColor='gray.200'
             p='2' fontWeight='bold' fontSize='large' justifyContent='center' alignItems='center'
             onClick={() => setSearchFilters(!searchFilters)}>
                 <Text>Search Hotel by Filters</Text>
                 <Icon paddingLeft='2' w='7' as={BsFilter}></Icon>
-            </Flex>
+            </Flex> */}
             {searchFilters && <SearchFilters />}
             <Text fontSize='2xl' p='4' fontWeight='bold'>
                 {router.query.purpose}

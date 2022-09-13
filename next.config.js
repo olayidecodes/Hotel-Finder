@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images : {
-    domains: ['exp.cdn-hotels.com']
+    domains: ['exp.cdn-hotels.com', 'maps-api-ssl.google.com']
   }
 }
 
