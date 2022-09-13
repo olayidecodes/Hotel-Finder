@@ -14,6 +14,7 @@ const HotelDetails = ({hotelDetails: {data: {body:
     hotelWelcomeRewards: {applies}}}},
     hotelPics: {hotelImages}}) => {
 
+        console.log(amenities)
     return (
     <Box maxWidth='1000px' margin='auto' p='4'>
         {hotelImages && <ImageScrollbar data={hotelImages} />}
@@ -27,9 +28,9 @@ const HotelDetails = ({hotelDetails: {data: {body:
             <Box marginTop='1rem' marginBottom='1rem'>
                 <Text fontStyle='italic' fontWeight='semibold' color='gray.200' p='2' bg='gray.700' width='max-content' borderRadius='6'>Overview</Text>
                 {overviewSections.map((item) => 
-                <Flex gap='.5rem' flexDirection='column'>
+                <Flex gap='.5rem' flexDirection='column' key={item.type}>
                     <Text fontSize='.9rem' fontWeight='semibold' marginTop='.8rem'>{item.type.replaceAll('_', ' ')}:</Text> 
-                    <Flex flexDirection='column' fontSize='.9rem'>{item.content.map((text) => <Text>{text}</Text>)}</Flex>
+                    <Flex flexDirection='column' fontSize='.9rem'>{item.content.map((text) => <Text key={text.id}>{text}</Text>)}</Flex>
                 </Flex>
                 )}
             </Box>
@@ -37,10 +38,10 @@ const HotelDetails = ({hotelDetails: {data: {body:
             <Box marginTop='1rem' marginBottom='1rem'>
                 <Text fontStyle='italic' fontWeight='semibold' color='gray.200' p='2' bg='gray.700' width='max-content' borderRadius='6'>Amenities</Text>
                 {amenities.map((item) => 
-                <Flex gap='.5rem' flexDirection='column'>
+                <Flex gap='.5rem' flexDirection='column' key={item.heading}>
                     <Text fontSize='.9rem' fontWeight='semibold' marginTop='.8rem'>{item.heading}:</Text> 
                     <Flex flexWrap='wrap' fontSize='.9rem'>{item.listItems.map((box) => 
-                        <Flex flexWrap='wrap'>{box.listItems.map((text) => <Text fontWeight='semibold' color='blue.400' p='2' bg='gray.200' m='1' borderRadius='5'>{text}</Text>)}</Flex>)}
+                        <Flex flexWrap='wrap' key={box.heading}>{box.listItems.map((text) => <Text key={text.id} fontWeight='semibold' color='blue.400' p='2' bg='gray.200' m='1' borderRadius='5'>{text}</Text>)}</Flex>)}
                     </Flex>
                 </Flex>
                 )}
